@@ -4,7 +4,9 @@
 
 ## Demo
 
-[https://teatime-starter.netlify.app]
+https://teatime-starter.netlify.app
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/816074af-e902-4e3b-80d6-c52cfe65e8e4/deploy-status)](https://app.netlify.com/sites/teatime-starter/deploys)
 
 ## Deploy your own
 
@@ -12,7 +14,7 @@ If you have a [Netlify](https://netlify.com) account and are logged in, you can 
 
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/alanmosely/teatime-starter"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
-## What is in the pack?
+## Ingredients
 
 - [**T**ailwind CSS](https://tailwindcss.com), including configuration and optimisation ('vanilla' CSS is also demonstrated)
 - [**E**leventy](https://www.11ty.dev), including plugins, filters and shortcodes
@@ -47,7 +49,7 @@ npm i
 
 ### Optionally customise the site
 
-Configure your domain name, website name, social media links, facebook pixel and more in the `env.js` and `site.json` files in the `src/_data` directory.
+Configure your domain name, website name, social media links, facebook pixel and more in the `env.js` and `site.json` files in the `src/_data` directory
 
 ### Run the website locally
 
