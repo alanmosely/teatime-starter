@@ -1,0 +1,20 @@
+{
+  "title": "TEAtime Starter",
+  "description": "A TEAtime starter project",
+  "author": "Alan Mosely",
+  "image": "/img/logo.png",
+  "language": "en",
+  "repo": "https://github.com/alanmosely/teatime-starter",
+  "social": [
+    {
+      "title": "GitHub",
+      "url": "https://github.com/alanmosely",
+      "image": "/img/github.svg"
+    },
+    {
+      "title": "Medium",
+      "url": "https://medium.com/@alan.mosely",
+      "image": "/img/medium.svg"
+    }
+  ]
+}

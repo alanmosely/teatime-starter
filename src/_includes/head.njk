@@ -1,0 +1,44 @@
+{%- set absolutePageUrl -%}{{ page.url | url | absoluteUrl(env.url) }}{%- endset -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preload" href="/css/page.css" as="style">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ pageTitle or title }} - {{ site.title }}</title>
+<meta name="description" content="{{ description or site.description }}">
+<meta name="author" content="{{ site.author }}">
+<meta name="robots" content="index,follow">
+<!-- Social Metadata -->
+<meta property="og:site_name" content="{{ site.author }}">
+<meta property="og:title" content="{{ title or site.title }} - {{ site.title }}">
+<meta property="og:description" content="{{ description or site.description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ absolutePageUrl }}">
+<meta property="og:image" content="{{ site.image | url | absoluteUrl(env.url) }}">
+<meta name="theme-color" content="#ffffff">
+{% favicon './src/static/img/logo.png' %}
+<link rel="stylesheet" href="/css/page.css">
+<script defer src="/js/alpine.js"></script>
+{% if env.isProd %}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script defer src="https://www.googletagmanager.com/gtag/js?id={{ env.tracking.gtag }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ env.tracking.gtag }}');
+  </script>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '{{ env.tracking.pixelId }}');
+    fbq('track', 'PageView');
+  </script>
+{% endif %}

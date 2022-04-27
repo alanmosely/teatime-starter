@@ -1,0 +1,33 @@
+<nav id="header"
+  class="flex flex-col items-center justify-between w-full px-4 py-1 bg-white shadow sm:flex-row sm:px-6 sm:bg-transparent sm:shadow-none">
+  <div id="menuHeader"
+    class="flex flex-row flex-no-wrap items-center self-start justify-between w-full sm:w-auto sm:self-center sm:flex-none">
+    <a aria-label="Home" href="/" class="relative inline transition-all duration-500 delay-300 transform opacity-0 hover:no-underline -left-10" x-init="$el.classList.add('translate-x-8');$el.classList.add('opacity-100')">
+      <img src="/img/logo.png" alt="tea logo" class="m-1" height="40px" width="40px">
+    </a>
+    <button id="menuBtn" class="block hamburger sm:hidden focus:outline-none" type="button" onclick="navToggle();"
+      aria-label="Show Menu"><span class="hamburger__top-bun"></span><span
+        class="hamburger__bottom-bun"></span></button>
+  </div>
+  <div id="menu"
+    class="fixed inset-0 z-10 flex-col items-center self-end justify-center hidden h-full py-6 bg-black sm:relative sm:w-auto sm:self-center sm:flex sm:flex-row sm:py-0">
+    <a class="w-auto px-3 py-3 text-lg font-bold text-center text-white hover:no-underline hover:text-gray-400 sm:flex sm:py-0"
+      href="{% if isFront %}#about{% else %}{{ env.url }}/#about{% endif %}">About</a>
+    <a class="w-auto px-5 py-1 mx-4 my-4 text-lg font-bold text-left text-white border hover:no-underline bg-customRed hover:bg-opacity-80 sm:my-0"
+      href="{{ site.repo }}/fork" target="_blank" rel="_noopener">Fork This</a>
+    <div class="flex flex-row flex-wrap items-center justify-center py-3 text-white sm:py-0">
+      <ul class="flex m-0 mx-auto text-center">
+        {% for item in site.social %}
+        <li class="p-1">
+          <a href="{{ item.url }}" target="_blank" rel="_noopener"><img class="hover:opacity-60"
+              src="{{ item.image }}" alt="{{item.name}} logo"  height="24px" width="24px"></a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="shadow progress-container sm:shadow-none">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+</nav>
+<div id="header-filler"></div>

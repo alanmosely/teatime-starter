@@ -1,0 +1,29 @@
+<footer class="relative flex flex-col w-full py-10 text-lg sm:flex-row sm:justify-center">
+  <div class="px-8 py-4 text-center">
+    <ul class="list-none">
+      <li>
+        <a class="no-underline hover:text-customRed"
+          href="{% if isFront %}#about{% else %}{{ env.url }}/#about{% endif %}">About</a>
+      </li>
+      <li>
+        <a class="no-underline hover:text-customRed" href="/credits">Credits</a>
+      </li>
+    </ul>
+  </div>
+  <div class="w-1/2 h-px mx-auto bg-customRed sm:h-auto sm:w-px sm:mx-0"></div>
+  <div class="py-4 pl-0 text-center sm:pl-8">
+    <ul class="list-none">
+      {% for item in site.social %}
+      <li>
+        <a class="no-underline hover:text-customRed" href="{{ item.url }}" target="_blank" rel="_noopener">{{ item.title
+          }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</footer>
+<div class="w-full bg-white">
+  <span class="block pb-5 text-sm font-light text-center">
+    &copy; {{ site.author }}, <span x-data x-text="new Date().getFullYear()"></span>
+  </span>
+</div>
