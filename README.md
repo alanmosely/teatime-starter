@@ -1,6 +1,6 @@
 # 🍵 The TEAtime Starter Project
 
-> [This Medium story](https://medium.com/@alan.mosely/build-and-host-the-low-code-website-you-always-wanted) is a complete guide on how to build and host the low-code website you’ve always wanted, for free, in a day
+> [This Medium story](https://medium.com/geekculture/build-and-host-the-low-code-website-you-always-wanted-734f43c25874) is a complete guide on how to build and host the low-code website you’ve always wanted, for free, in a day
 
 ## Demo
 
