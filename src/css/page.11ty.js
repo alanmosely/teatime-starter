@@ -1,28 +1,26 @@
-const fs = require('fs');
-const path = require('path');
-const postcss = require('postcss');
+import fs from 'node:fs';
+import path from 'node:path';
+import postcss from 'postcss';
+import tailwindcss from '@tailwindcss/postcss';
 
-module.exports = class {
+export default class {
   async data() {
-    const cssDir = path.join(__dirname, '..', '_includes', 'css');
+    const cssDir = path.join(import.meta.dirname, '..', '_includes', 'css');
     const rawFilepath = path.join(cssDir, '_page.css');
 
     return {
       eleventyExcludeFromCollections: true,
       permalink: `css/page.css`,
       rawFilepath,
-      rawCss: fs.readFileSync(rawFilepath),
+      rawCss: fs.readFileSync(rawFilepath, 'utf8'),
     };
   }
 
   async render({ rawCss, rawFilepath }) {
     return await postcss([
-      require('postcss-import'),
-      require('autoprefixer'),
-      require('tailwindcss'),
-      require('cssnano')
+      tailwindcss({ optimize: { minify: true } })
     ])
       .process(rawCss, { from: rawFilepath })
       .then((result) => result.css);
   }
-};
+}

@@ -16,7 +16,7 @@ If you have a [Netlify](https://netlify.com) account and are logged in, you can 
 
 ## Ingredients
 
-- [**T**ailwind CSS](https://tailwindcss.com), including configuration and optimisation ('vanilla' CSS is also demonstrated)
+- [**T**ailwind CSS](https://tailwindcss.com) v4, including CSS-first configuration and optimisation ('vanilla' CSS is also demonstrated)
 - [**E**leventy](https://www.11ty.dev), including plugins, filters and shortcodes
 - [**A**lpine.js](https://alpinejs.dev), including basic animation with CSS ('vanilla' JS is also demonstrated)
 - [Nunjucks](https://mozilla.github.io/nunjucks) templates
@@ -25,7 +25,7 @@ If you have a [Netlify](https://netlify.com) account and are logged in, you can 
 - Basic SEO:
   - HTML tags with [Front Matter](https://www.11ty.dev/docs/data-frontmatter)
   - [Google Analytics](https://analytics.google.com) and [Facebook Pixel](https://www.facebook.com/business/learn/facebook-ads-pixel) integration
-  - Performance optimisation with [postcss](https://postcss.org), [cssnano](https://cssnano.co) and [html-minifier](https://www.npmjs.com/package/html-minifier)
+  - Performance optimisation with [postcss](https://postcss.org), [Lightning CSS](https://lightningcss.dev) (built into Tailwind v4) and [html-minifier-terser](https://www.npmjs.com/package/html-minifier-terser)
   - Image optimisation with the [Eleventy Image Plugin](https://www.11ty.dev/docs/plugins/image)
   - Dynamic sitemap.xml and robots.txt
 
@@ -33,7 +33,7 @@ If you have a [Netlify](https://netlify.com) account and are logged in, you can 
 
 ### Install Node.js
 
-Use `nvm` or `nvm-windows` to install the latest version of `Node.js, npm and npx`: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+Use `nvm` or `nvm-windows` to install the latest LTS version of `Node.js, npm and npx` (Node.js 22 or newer is required): https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
 ### Clone the repository
 
@@ -51,6 +51,8 @@ npm i
 
 Configure your domain name, website name, social media links, facebook pixel and more in the `env.js` and `site.json` files in the `src/_data` directory
 
+Theme colours and the hero background images are defined in the `@theme` block in `src/_includes/css/_page.css` ([Tailwind CSS v4 CSS-first configuration](https://tailwindcss.com/docs/theme))
+
 ### Run the website locally
 
 ```
@@ -60,3 +62,13 @@ npm run start
 ### Browse the local website
 
 Open http://localhost:8080 in a browser of your choice
+
+## Scripts
+
+| Command | What it does |
+| --- | --- |
+| `npm start` | Serve the site locally with live reload (dev URLs) |
+| `npm run build` | Clean and build with dev URLs |
+| `npm run build:prod` | Build with production URLs (used by Netlify) |
+| `npm run clean` | Delete the `public` output directory |
+| `npm run deploy` | Build for production and deploy to Firebase Hosting |

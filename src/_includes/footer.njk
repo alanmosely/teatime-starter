@@ -2,20 +2,20 @@
   <div class="px-8 py-4 text-center">
     <ul class="list-none">
       <li>
-        <a class="no-underline hover:text-customRed"
+        <a class="no-underline hover:text-custom-red"
           href="{% if isFront %}#about{% else %}{{ env.url }}/#about{% endif %}">About</a>
       </li>
       <li>
-        <a class="no-underline hover:text-customRed" href="/credits">Credits</a>
+        <a class="no-underline hover:text-custom-red" href="/credits">Credits</a>
       </li>
     </ul>
   </div>
-  <div class="w-1/2 h-px mx-auto bg-customRed sm:h-auto sm:w-px sm:mx-0"></div>
+  <div class="w-1/2 h-px mx-auto bg-custom-red sm:h-auto sm:w-px sm:mx-0"></div>
   <div class="py-4 pl-0 text-center sm:pl-8">
     <ul class="list-none">
       {% for item in site.social %}
       <li>
-        <a class="no-underline hover:text-customRed" href="{{ item.url }}" target="_blank" rel="_noopener">{{ item.title
+        <a class="no-underline hover:text-custom-red" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title
           }}</a>
       </li>
       {% endfor %}

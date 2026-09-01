@@ -68,7 +68,7 @@ main > div {
 
 .progress-bar {
   height: 5px;
-  background: theme('colors.customRed');
+  background: var(--color-custom-red);
   width: 0%;
 }
 
@@ -86,13 +86,13 @@ main > div {
   position: absolute;
   width: 24px;
   height: 2px;
-  background: theme('colors.customRed');
+  background: var(--color-custom-red);
   transform: rotate(0);
   transition: all 0.5s;
 }
 
 .hamburger:hover [class*="-bun"] {
-  background: theme('colors.customRed');
+  background: var(--color-custom-red);
 }
 
 .hamburger__top-bun {

@@ -1,8 +1,11 @@
-@import "./custom.css";
+@import "tailwindcss";
+@import "./custom.css" layer(components);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --color-custom-red: #BB2637;
+  --background-image-hero-lg: url("/img/hero.webp");
+  --background-image-hero-sm: url("/img/hero-mobile.webp");
+}
 
 @layer base {
   h1 {

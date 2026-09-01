@@ -1,10 +1,14 @@
 {
   "name": "teatime-starter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "TEAtime Starter",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/alanmosely/teatime-starter"
+  },
+  "engines": {
+    "node": ">=22"
   },
   "scripts": {
     "clean": "del-cli public",
@@ -18,22 +22,19 @@
     "debug": "cross-env DEBUG=* npx eleventy"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0",
-    "@11ty/eleventy-img": "^1.0.0",
-    "@11ty/eleventy-plugin-rss": "^1.1.1",
-    "alpinejs": "^3.7.0",
-    "autoprefixer": "^10.2.5",
-    "cross-env": "^7.0.3",
-    "cssnano": "^5.0.14",
-    "del-cli": "^3.0.0",
-    "eleventy-favicon": "^1.1.2",
-    "firebase-tools": "^10.0.1",
-    "html-minifier": "^4.0.0",
-    "markdown-it": "^12.3.2",
-    "markdown-it-attrs": "^4.1.3",
-    "markdown-it-emoji": "^2.0.2",
-    "postcss": "^8.2.9",
-    "postcss-import": "^14.0.0",
-    "tailwindcss": "^3.0.0"
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-img": "^7.0.0",
+    "@11ty/eleventy-plugin-rss": "^3.0.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "alpinejs": "^3.17.1",
+    "cross-env": "^10.1.0",
+    "del-cli": "^7.0.0",
+    "firebase-tools": "^15.28.2",
+    "html-minifier-terser": "^7.2.0",
+    "markdown-it": "^15.0.1",
+    "markdown-it-attrs": "^5.0.1",
+    "markdown-it-emoji": "^3.1.0",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^4.3.3"
   }
 }

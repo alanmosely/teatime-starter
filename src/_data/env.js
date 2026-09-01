@@ -5,7 +5,7 @@ const prodUrl = 'https://MY-DOMAIN.com';
 const isProd = environment !== DEV_ENV;
 const url = isProd ? prodUrl : devUrl;
 
-module.exports = {
+export default {
     environment,
     isProd,
     url,

@@ -1,6 +1,6 @@
 .env
 public/
-package-lock.json
+.claude/
 
 # Logs
 logs
