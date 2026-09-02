@@ -1,6 +1,8 @@
 # 🍵 The TEAtime Starter Project
 
 > [This Medium story](https://medium.com/geekculture/build-and-host-the-low-code-website-you-always-wanted-734f43c25874) is a complete guide on how to build and host the low-code website you’ve always wanted, for free, in a day
+>
+> _The story covers the original 2022 stack; this repo has since been modernised to Eleventy 3, Tailwind CSS 4 and Node 24 — the concepts in the story still apply, but some configuration details differ_
 
 ## Demo
 
@@ -8,11 +10,23 @@ https://teatime-starter.netlify.app
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/816074af-e902-4e3b-80d6-c52cfe65e8e4/deploy-status)](https://app.netlify.com/sites/teatime-starter/deploys)
 
+[![The TEAtime Starter homepage](.github/screenshot.webp)](https://teatime-starter.netlify.app)
+
 ## Deploy your own
+
+### Netlify
 
 If you have a [Netlify](https://netlify.com) account and are logged in, you can deploy this site in under a minute:
 
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/alanmosely/teatime-starter"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+
+### Firebase Hosting
+
+The project also ships ready for [Firebase Hosting](https://firebase.google.com/docs/hosting): set your project id in `.firebaserc`, sign in once with `npx firebase login`, then:
+
+```
+npm run deploy
+```
 
 ## Ingredients
 
@@ -22,12 +36,31 @@ If you have a [Netlify](https://netlify.com) account and are logged in, you can 
 - [Nunjucks](https://mozilla.github.io/nunjucks) templates
 - [Markdown](https://www.markdownguide.org), including custom attributes
 - Custom 404 'Page not found' page
+- AI-agent friendly: conventions and commands are documented in [AGENTS.md](AGENTS.md) (picked up by Codex and most coding agents, and by Claude Code via [CLAUDE.md](CLAUDE.md))
 - Basic SEO:
   - HTML tags with [Front Matter](https://www.11ty.dev/docs/data-frontmatter)
   - [Google Analytics](https://analytics.google.com) and [Facebook Pixel](https://www.facebook.com/business/learn/facebook-ads-pixel) integration
   - Performance optimisation with [postcss](https://postcss.org), [Lightning CSS](https://lightningcss.dev) (built into Tailwind v4) and [html-minifier-terser](https://www.npmjs.com/package/html-minifier-terser)
   - Image optimisation with the [Eleventy Image Plugin](https://www.11ty.dev/docs/plugins/image)
   - Dynamic sitemap.xml and robots.txt
+
+## Project structure
+
+```
+├── eleventy.config.js     # Eleventy config: plugins, shortcodes, transforms
+├── netlify.toml           # Netlify build settings (Node version, publish dir)
+├── firebase.json          # Firebase Hosting settings
+└── src/
+    ├── _data/             # Global data: site.json (site metadata), env.js (URLs, tracking ids)
+    ├── _includes/         # Partials: navbar, footer, head, js, page content
+    │   └── css/_page.css  # Tailwind entry: @theme block with colours & hero images
+    ├── _layouts/          # base.njk and page.njk layouts
+    ├── css/page.11ty.js   # Compiles the CSS with PostCSS + Tailwind at build time
+    ├── static/            # Copied verbatim to the site root (images, favicons)
+    └── *.njk / *.md       # Pages: index, credits, 404, sitemap, robots
+```
+
+The build output goes to `public/` (git-ignored — never edit it directly).
 
 ## Getting started
 
@@ -72,3 +105,7 @@ Open http://localhost:8080 in a browser of your choice
 | `npm run build:prod` | Build with production URLs (used by Netlify) |
 | `npm run clean` | Delete the `public` output directory |
 | `npm run deploy` | Build for production and deploy to Firebase Hosting |
+
+## License
+
+[MIT](LICENSE)
