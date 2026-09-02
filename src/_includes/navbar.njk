@@ -3,7 +3,7 @@
   <div id="menuHeader"
     class="flex flex-row flex-nowrap items-center self-start justify-between w-full sm:w-auto sm:self-center sm:flex-none">
     <a aria-label="Home" href="/" class="relative inline transition-all duration-500 delay-300 transform opacity-0 hover:no-underline -left-10" x-init="$el.classList.add('translate-x-8');$el.classList.add('opacity-100')">
-      <img src="/img/logo.png" alt="tea logo" class="m-1" height="40px" width="40px">
+      <img src="/img/logo.png" alt="tea logo" class="m-1" height="40" width="40">
     </a>
     <button id="menuBtn" class="block hamburger sm:hidden focus:outline-hidden" type="button" onclick="navToggle();"
       aria-label="Show Menu"><span class="hamburger__top-bun"></span><span
@@ -20,7 +20,7 @@
         {% for item in site.social %}
         <li class="p-1">
           <a href="{{ item.url }}" target="_blank" rel="noopener"><img class="hover:opacity-60"
-              src="{{ item.image }}" alt="{{item.name}} logo"  height="24px" width="24px"></a>
+              src="{{ item.image }}" alt="{{item.name}} logo"  height="24" width="24"></a>
         </li>
         {% endfor %}
       </ul>

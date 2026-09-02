@@ -22,7 +22,7 @@ If you have a [Netlify](https://netlify.com) account and are logged in, you can 
 
 ### Firebase Hosting
 
-The project also ships ready for [Firebase Hosting](https://firebase.google.com/docs/hosting): set your project id in `.firebaserc`, sign in once with `npx firebase login`, then:
+The project also ships ready for [Firebase Hosting](https://firebase.google.com/docs/hosting): set your project id in `.firebaserc`, sign in once with `npx firebase-tools login`, then:
 
 ```
 npm run deploy

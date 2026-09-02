@@ -32,7 +32,8 @@ There are no tests; a successful build catches template and config errors.
   PostCSS + `@tailwindcss/postcss`) into `/css/page.css`; there is no separate
   CSS build step or watcher.
 - `ELEVENTY_ENV=dev` switches `src/_data/env.js` to localhost URLs; when unset,
-  builds use the production URL placeholder (`https://MY-DOMAIN.com`).
+  builds use the `URL` env var (injected by Netlify) or fall back to the
+  production URL placeholder (`https://MY-DOMAIN.com`).
 - Markdown renders through Liquid preprocessing (Eleventy's default);
   `index.njk` embeds `src/_includes/content/about.md` via `{% renderFile %}`.
 - Config is `eleventy.config.js`; layouts in `src/_layouts`, includes in
