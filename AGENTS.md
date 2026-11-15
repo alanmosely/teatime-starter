@@ -11,7 +11,9 @@ Source lives in `src/`; `public/` is generated output — never edit it.
 - `npm start` — dev server with live reload at http://localhost:8080
 - `npm run clean` — delete `public/`
 
-There are no tests; a successful build catches template and config errors.
+`npm test` checks production-origin validation and the actual dev/production build
+outputs. Run it after URL, sitemap or build changes. A production build requires
+`SITE_URL` or Netlify's supplied `URL`.
 
 ## Conventions that differ from docs/defaults
 
@@ -31,9 +33,10 @@ There are no tests; a successful build catches template and config errors.
 - CSS is compiled by `src/css/page.11ty.js` (an Eleventy JS template running
   PostCSS + `@tailwindcss/postcss`) into `/css/page.css`; there is no separate
   CSS build step or watcher.
-- `ELEVENTY_ENV=dev` switches `src/_data/env.js` to localhost URLs; when unset,
-  builds use the `URL` env var (injected by Netlify) or fall back to the
-  production URL placeholder (`https://MY-DOMAIN.com`).
+- `ELEVENTY_ENV=dev` switches `src/_data/env.js` to localhost URLs. Production
+  builds require a valid `SITE_URL` or Netlify's supplied `URL`; no placeholder
+  fallback is allowed. `build:prod` explicitly sets production mode and cleans
+  generated output. Keep utility files and ignored pages out of the sitemap.
 - Markdown renders through Liquid preprocessing (Eleventy's default);
   `index.njk` embeds `src/_includes/content/about.md` via `{% renderFile %}`.
 - Config is `eleventy.config.js`; layouts in `src/_layouts`, includes in

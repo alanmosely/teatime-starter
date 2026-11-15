@@ -5,8 +5,8 @@
     <a aria-label="Home" href="/" class="relative inline transition-all duration-500 delay-300 transform opacity-0 hover:no-underline -left-10" x-init="$el.classList.add('translate-x-8');$el.classList.add('opacity-100')">
       <img src="/img/logo.png" alt="tea logo" class="m-1" height="40" width="40">
     </a>
-    <button id="menuBtn" class="block hamburger sm:hidden focus:outline-hidden" type="button" onclick="navToggle();"
-      aria-label="Show Menu"><span class="hamburger__top-bun"></span><span
+    <button id="menuBtn" class="block hamburger sm:hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-500" type="button" onclick="navToggle();"
+      aria-label="Open Menu" aria-controls="menu" aria-expanded="false"><span class="hamburger__top-bun"></span><span
         class="hamburger__bottom-bun"></span></button>
   </div>
   <div id="menu"

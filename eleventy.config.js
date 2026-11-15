@@ -36,6 +36,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addPlugin(RenderPlugin);
 
   eleventyConfig.addFilter('removeTrailingSlash', removeTrailingSlash);
+  eleventyConfig.addFilter('sitemapPages', pages => pages.filter(page =>
+    !page.data.ignore && page.url && /(?:\/|\.html)$/.test(page.url)
+  ));
 
   eleventyConfig.addWatchTarget('./src/_includes/css/');
 
