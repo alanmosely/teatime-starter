@@ -19,3 +19,17 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - name: Build release demo
+        if: matrix.node == '24'
+        run: npm run build:prod
+        env:
+          SITE_URL: https://teatime-starter.netlify.app
+      - name: Bundle release downloads
+        if: matrix.node == '24'
+        run: python scripts/bundle-release.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: matrix.node == '24'
+        with:
+          name: teatime-release
+          path: .cache/release/*
+          if-no-files-found: error
