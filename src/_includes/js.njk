@@ -1,21 +1,30 @@
 <script>
   function navToggle() {
-    let body = document.getElementById('top');
-    let header = document.getElementById('menuHeader');
-    let btn = document.getElementById('menuBtn');
-    let nav = document.getElementById('menu');
-    if (btn.classList.contains('open')) {
-      nav.removeEventListener("click", navToggle);
-    }
-    else {
-      nav.addEventListener("click", navToggle, { once: true });
-    }
-    body.classList.toggle('overflow-y-hidden');
-    header.classList.toggle('z-20');
-    btn.classList.toggle('open');
-    nav.classList.toggle('flex');
-    nav.classList.toggle('hidden');
+    setNavOpen(document.getElementById('menuBtn').getAttribute('aria-expanded') !== 'true');
   }
+
+  function setNavOpen(open, restoreFocus = false) {
+    const btn = document.getElementById('menuBtn');
+    document.getElementById('top').classList.toggle('overflow-y-hidden', open);
+    document.getElementById('menuHeader').classList.toggle('z-20', open);
+    document.getElementById('menu').classList.toggle('flex', open);
+    document.getElementById('menu').classList.toggle('hidden', !open);
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close Menu' : 'Open Menu');
+    if (restoreFocus) btn.focus();
+  }
+
+  document.getElementById('menu').addEventListener('click', () => setNavOpen(false));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && document.getElementById('menuBtn').getAttribute('aria-expanded') === 'true') {
+      event.preventDefault();
+      setNavOpen(false, true);
+    }
+  });
+  window.matchMedia('(min-width: 640px)').addEventListener('change', event => {
+    if (event.matches) setNavOpen(false);
+  });
 
   function progressBar() {
     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;

@@ -16,7 +16,9 @@
     "start": "npm run serve",
     "prebuild": "npm run clean",
     "build": "cross-env ELEVENTY_ENV=dev npx eleventy",
-    "build:prod": "npx eleventy",
+    "prebuild:prod": "npm run clean",
+    "build:prod": "cross-env ELEVENTY_ENV=production npx eleventy",
+    "test": "node --test test/*.test.js",
     "predeploy": "npm run build:prod",
     "deploy": "npx firebase-tools deploy",
     "debug": "cross-env DEBUG=* npx eleventy"

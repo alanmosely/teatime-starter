@@ -22,11 +22,18 @@ If you have a [Netlify](https://netlify.com) account and are logged in, you can 
 
 ### Firebase Hosting
 
-The project also ships ready for [Firebase Hosting](https://firebase.google.com/docs/hosting): set your project id in `.firebaserc`, sign in once with `npx firebase-tools login`, then:
+The project also ships ready for [Firebase Hosting](https://firebase.google.com/docs/hosting): set your project id in `.firebaserc`, sign in once with `npx firebase-tools login`, then provide the public origin of your site (your custom domain or Firebase `web.app` origin):
 
 ```
-npm run deploy
+npx cross-env SITE_URL=https://your-project.web.app npm run deploy
 ```
+
+Replace `your-project.web.app` with your actual public host. A Firebase project ID
+does not set the site's URL. `SITE_URL` takes precedence over Netlify's `URL`.
+Production builds reject missing, placeholder, localhost or malformed origins,
+including paths, credentials, query strings and fragments. A trailing slash is
+normalised. Netlify's supplied `URL` needs no extra configuration; set `SITE_URL`
+only to override it. Local development continues to use `http://localhost:8080`.
 
 ## Ingredients
 
@@ -105,6 +112,7 @@ Open http://localhost:8080 in a browser of your choice
 | `npm run build:prod` | Build with production URLs (used by Netlify) |
 | `npm run clean` | Delete the `public` output directory |
 | `npm run deploy` | Build for production and deploy to Firebase Hosting |
+| `npm test` | Check production origin validation and generated dev/Firebase/Netlify URLs and sitemap |
 
 ## License
 
