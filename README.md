@@ -105,6 +105,20 @@ Open http://localhost:8080 in a browser of your choice
 
 ## Scripts
 
+### Upgrade to 0.0.3
+
+Back up your custom templates, styles and site data, then merge the starter
+changes or apply them selectively. Run `npm ci` on Node 22 or 24. Set your actual
+production origin with `SITE_URL` (Firebase/custom hosting), or use Netlify's
+provided `URL`, then run `npm test` and `npm run build:prod` before redeploying.
+Missing/placeholder origins now fail the production build. Keep the updated
+menu markup and script together so accessibility state and Escape handling work.
+
+The release's built site ZIP is the demo at
+`https://teatime-starter.netlify.app`; rebuild from source with your own origin
+before deploying to another domain. Extract site ZIP contents into the web root,
+not an extra nested directory. See [release notes](RELEASE_NOTES_0.0.3.md).
+
 | Command | What it does |
 | --- | --- |
 | `npm start` | Serve the site locally with live reload (dev URLs) |
